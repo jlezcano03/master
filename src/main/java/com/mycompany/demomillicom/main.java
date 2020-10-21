@@ -16,6 +16,7 @@ import java.nio.charset.Charset;
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.util.logging.Level;
 
 
 /**
@@ -27,9 +28,11 @@ public class main extends javax.swing.JFrame {
     /**
      * Creates new form main
      */
+    int contador = 1;
+    
     public main() {
         initComponents();
-        lectura_json();
+        
     }
 
     /**
@@ -41,91 +44,209 @@ public class main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cmdInicio = new javax.swing.JButton();
-        cmdFin = new javax.swing.JButton();
-        cmdSiguiente = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtUrl = new javax.swing.JTextField();
+        cmdCargar = new javax.swing.JButton();
         cmdAnterior = new javax.swing.JButton();
+        cmdSiguiente = new javax.swing.JButton();
+        cmdFin = new javax.swing.JButton();
+        cmdInicio = new javax.swing.JButton();
+        txtHtml = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cmdInicio.setText("Inicio");
+        jLabel1.setText("Url");
 
-        cmdFin.setText("Fin");
-
-        cmdSiguiente.setText("Siguiente");
+        cmdCargar.setText("Cargar");
+        cmdCargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCargarActionPerformed(evt);
+            }
+        });
 
         cmdAnterior.setText("Anterior");
+        cmdAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdAnteriorActionPerformed(evt);
+            }
+        });
+
+        cmdSiguiente.setText("Siguiente");
+        cmdSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdSiguienteActionPerformed(evt);
+            }
+        });
+
+        cmdFin.setText("Fin");
+        cmdFin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdFinActionPerformed(evt);
+            }
+        });
+
+        cmdInicio.setText("Inicio");
+        cmdInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdInicioActionPerformed(evt);
+            }
+        });
+
+        txtHtml.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtHtml, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmdCargar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(cmdInicio)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmdAnterior)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmdSiguiente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmdFin)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmdAnterior)
+                    .addComponent(cmdSiguiente)
+                    .addComponent(cmdFin)
+                    .addComponent(cmdInicio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtHtml, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmdCargar))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(286, 286, 286)
-                .addComponent(cmdInicio)
-                .addGap(18, 18, 18)
-                .addComponent(cmdAnterior)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmdSiguiente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmdFin)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmdInicio)
-                    .addComponent(cmdSiguiente)
-                    .addComponent(cmdAnterior)
-                    .addComponent(cmdFin))
-                .addContainerGap(471, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmdCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCargarActionPerformed
+        try {
+            lectura_json();
+        } catch (IOException ex) {
+            txtHtml.setText(String.valueOf(ex));
+        }
+    }//GEN-LAST:event_cmdCargarActionPerformed
+
+    private void cmdInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdInicioActionPerformed
+        contador = 1;
+        txtUrl.setText("https://xkcd.com/" + contador + "/info.0.json");
+        try {
+            lectura_json();
+        } catch (IOException ex) {
+            txtHtml.setText(String.valueOf(ex));
+        }
+    }//GEN-LAST:event_cmdInicioActionPerformed
+
+    private void cmdAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAnteriorActionPerformed
+        contador--;
+        if (contador<1){
+            contador=1;
+        }
+        txtUrl.setText("https://xkcd.com/" + contador + "/info.0.json");
+        try {
+            lectura_json();
+        } catch (IOException ex) {
+            txtHtml.setText(String.valueOf(ex));
+        }
+    }//GEN-LAST:event_cmdAnteriorActionPerformed
+
+    private void cmdSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSiguienteActionPerformed
+        contador++;
+        if (contador>2380){
+            contador=2380;
+        }
+        txtUrl.setText("https://xkcd.com/" + contador + "/info.0.json");
+        try {
+            lectura_json();
+        } catch (IOException ex) {
+            txtHtml.setText(String.valueOf(ex));
+        }       
+    }//GEN-LAST:event_cmdSiguienteActionPerformed
+
+    private void cmdFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdFinActionPerformed
+         contador = 2380;
+        txtUrl.setText("https://xkcd.com/" + contador + "/info.0.json");
+        try {
+            lectura_json();
+        } catch (IOException ex) {
+            txtHtml.setText(String.valueOf(ex));
+        }    
+    }//GEN-LAST:event_cmdFinActionPerformed
+
     private void lectura_json() throws IOException{
-        URL v_url = new URL("https://xkcd.com/info.0.json");
-         BufferedReader v_br = new BufferedReader(new         
-         InputStreamReader(v_url.openStream(),
-         Charset.forName("UTF-8")));
-         String v_linea = " ";
-         StringBuilder jsonString = new StringBuilder();
-         while((v_linea = v_br.readLine()) != null){
-           jsonString.append(v_linea);
-         }
+        String v_strurl = txtUrl.getText();
+        URL v_url = new URL(v_strurl);
+        BufferedReader v_br = new BufferedReader(new InputStreamReader(v_url.openStream(), Charset.forName("UTF-8")));
          
-         String[] a_tag = String.valueOf(jsonString).split(","); 
-  
-         getContentPane().setLayout(new BorderLayout());
-         
-         //getContentPane().add(new JLabel("<table><tr><td>hola</td><td>chao</td></tr></table></html>"));
-         
-         String v_tabla = "<html>";
-         
-         for (String v_tag : a_tag) {
-             String[] a_campo = v_tag.replace("\"","").split(":"); 
-             
-             if (a_campo.length == 1){
-                v_tabla += "<tr><td></td>";
-                v_tabla += "<td></td>";
-                v_tabla += "<td>" + String.valueOf(a_campo[0]) + "</td></tr>";
-             } else {
-                v_tabla += "<tr><td>" + String.valueOf(a_campo[0]) + "</td>";
-                v_tabla += "<td>:</td>";
-                if (String.valueOf(a_campo[0]).indexOf("img")>0){
-                    v_tabla += "<td><img src='" + String.valueOf(a_campo[1]) + ":" + String.valueOf(a_campo[2]) + "' width='300' height='300'></td></tr>";
-                } else {
-                    v_tabla += "<td>" + String.valueOf(a_campo[1]) + "</td></tr>";
-                }
-             }
+        String v_linea = " ";
+        StringBuilder jsonString = new StringBuilder();
+        while((v_linea = v_br.readLine()) != null){
+          jsonString.append(v_linea.replace("{","").replace("}", "").replace("[", "").replace("]", ""));
+        }
+
+        String[] a_tag = String.valueOf(jsonString).split("\","); 
+
+        String v_tabla = "<html>";
+
+        for (String v_tag : a_tag) {
+            String[] a_campo = v_tag.replace("\"","").split(":"); 
             
-         }
-         v_tabla += "</html>";
-         getContentPane().add(new JLabel(v_tabla));
-         setVisible( true );
+            if (a_campo.length == 1){
+               v_tabla += "<tr><td></td>";
+               v_tabla += "<td></td>";
+               v_tabla += "<td>" + String.valueOf(a_campo[0]) + "</td></tr>";
+            } else {
+               v_tabla += "<tr><td>" + String.valueOf(a_campo[0]) + "</td>";
+               v_tabla += "<td>:</td>";
+               if (String.valueOf(a_campo[0]).indexOf("img")>0){
+                   v_tabla += "<td><img src='" + String.valueOf(a_campo[1]) + ":" + String.valueOf(a_campo[2]) + "' width='300' height='300'></td></tr>";
+               } else {
+                   v_tabla += "<td>" + String.valueOf(a_campo[1]).replace("\\n", "</p>") + "</td></tr>";
+               }
+            }
+
+        }
+        v_tabla += "</html>";
+         
+        txtHtml.setText(v_tabla);
+        setVisible( true );
 
     }
     
@@ -169,9 +290,14 @@ public class main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cmdAnterior;
+    private javax.swing.JButton cmdCargar;
     private javax.swing.JButton cmdFin;
     private javax.swing.JButton cmdInicio;
     private javax.swing.JButton cmdSiguiente;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel txtHtml;
+    private javax.swing.JTextField txtUrl;
     // End of variables declaration//GEN-END:variables
 
 }
